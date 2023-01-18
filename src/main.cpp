@@ -25,14 +25,7 @@ void loop()
   //empty
 }
 
-void Task2(void *pvParameters)  {
-    Serial.println("Task2");
-    digitalWrite(8, HIGH);   
-    vTaskDelay( 500 / portTICK_PERIOD_MS ); 
-    digitalWrite(8, LOW);    
-    vTaskDelay( 500 / portTICK_PERIOD_MS ); 
-}
-
+//task1 - blink requence change from 500/500.
 void Task1(void *pvParameters)  
 {
       Serial.println("Task1");
@@ -42,6 +35,16 @@ void Task1(void *pvParameters)
         vTaskDelay( 777 / portTICK_PERIOD_MS ); 
 }
 
+//task2 normal 500/500 blink sequence.
+void Task2(void *pvParameters)  {
+    Serial.println("Task2");
+    digitalWrite(8, HIGH);   
+    vTaskDelay( 500 / portTICK_PERIOD_MS ); 
+    digitalWrite(8, LOW);    
+    vTaskDelay( 500 / portTICK_PERIOD_MS ); 
+}
+
+//Task3 - Decides weather its task1 or task2 that runs.
 void Task3(void *pvParameters)  {
   for(;;)
   {
